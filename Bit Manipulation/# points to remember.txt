@@ -1,0 +1,16 @@
+
+Remember:
+
+a<<b is eqaual to (a*pow(2,b));
+so 
+1<<b in equal to (pow(2,b));
+
+
+
+1<<2 in binary is 100
+
+
+Remember:
+a^a=0;
+
+0^a=a;

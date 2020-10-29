@@ -1,0 +1,5 @@
+/*
+N friends
+can go in a pair or alone
+find total number of ways to go.
+*/
