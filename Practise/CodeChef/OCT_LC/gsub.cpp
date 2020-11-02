@@ -4,7 +4,7 @@
 #include<iostream>
 #include<climits>
 using namespace std;
-#define ll long long
+#define ll long 
 
 int main(int argc, char const *argv[])
 {
@@ -23,8 +23,7 @@ int main(int argc, char const *argv[])
 		{
 			ll x,y; 
 			cin>>x>>y;
-
-			
+		
 			a[x-1]=y;
 			ll len=1;
 			ll max_len=INT_MIN;
