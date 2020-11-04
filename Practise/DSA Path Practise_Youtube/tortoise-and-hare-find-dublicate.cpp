@@ -9,7 +9,7 @@ Each new element in the sequence is an element in nums at the index of the previ
 If one starts from x = nums[0], such a sequence will produce a linked list with a cycle.
 */
 
-int findDuplicate(vector<int>& arr) {
+int findDuplicateNoExtraSpace(vector<int>& arr) {
         
       int tortoise=arr[0];
       int hare=arr[0];
