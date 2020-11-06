@@ -97,7 +97,7 @@ bool f(int **a,int m,int n,int **sol,int i,int j)
       //assume solution exists through current cell
       sol[i][j]=1;
       bool rightSuccess=f(a,m,n,sol,i,j+1);
-      bool downSuccess=f(a,m,m,sol,i+1,j);
+      bool downSuccess=f(a,m,n,sol,i+1,j);
 
       //backtracking
       sol[i][j]=0;
