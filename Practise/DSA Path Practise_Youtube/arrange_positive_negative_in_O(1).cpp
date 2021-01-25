@@ -12,7 +12,7 @@ void rightrotate(int arr[], int n, int outofplace, int cur)
     arr[outofplace] = tmp;
 }
  
-void rearrange(int arr[], int n)
+void rearrange(int arr[], int n)z
 {
     int outofplace = -1;
  
