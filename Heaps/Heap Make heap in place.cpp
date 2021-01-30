@@ -58,7 +58,7 @@ void makeHeap(vector<int> v)
 //bottom-up
 void buildHeap(vector<int> v)
 {
-    for(int i=v.size()-1/2;i>=1;i--)
+    for(int i=(v.size()-1)/2;i>=1;i--)
     {
         heapify(v,i);
     }

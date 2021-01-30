@@ -6,7 +6,7 @@ using namespace std;
 class Fun
 {
     public:
-        void operator()(string s)
+        void operator()(string s){
             cout<<"Having fun inside operator fun"<<s;
         }
 };
