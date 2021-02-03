@@ -9,6 +9,9 @@ All computers connected to one-another directly / through intermediate.
 Minimize the wire length
 */
 
+
+/*NOTE WE CANNOT FILL INT_MAX USING memset().  Second Parameter in memset() is a single byte therefore it fills -1 in place of INT_MAX, program may give error.*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -19,73 +22,76 @@ void addEdge(vector<pp> adj[], int u , int v, int w){
     adj[v].push_back(make_pair(u,w));
 }
 
-void prims_MST(vector<pp> adj[], set<int> &imst, set<int> &nmst, int src, int &wt){
-
-    int temp;
-    int temp_weight = INT_MAX;
-    for(auto x:adj[src]){
-        int v = x.first;
-        int w = x.second;
-        if(w<temp_weight && nmst.count(v)==0){
-            temp_weight = w;
-            temp = v;
+int find_min_key(int key[], bool MST[], int V){
+    int min_Key = INT_MAX;
+    int min_ind = -1;
+    for(auto v = 0; v<V; v++){
+        if(key[v] < min_Key  && MST[v] == false){
+            min_Key = key[v];
+            min_ind = v;
         }
     }
 
-    imst.insert(temp);
-    nmst.erase(temp);
-
-    wt = wt + temp_weight;
-    prims_MST(adj,imst,nmst,temp,wt);
+    return min_ind;
 }
 
-int prims_MST_init(vector<pp> adj[], int V){
-    set<int> imst;
-    set<int> nmst;
-    for(auto i=0;i<V;i++){
-        nmst.insert(i);
+int minKey(int key[],bool MST[], int V){
+
+    int min_key = INT_MAX;
+    int min_key_index;
+
+    for(auto i = 0; i < V; i++){
+        if(MST[i] == false && key[i] < min_key){
+            min_key = key[i];
+            min_key_index  = i;
+        }
     }
 
-    int ele = *nmst.begin();
-    imst.insert(ele);
-    nmst.erase(ele);
-    int wt = 0;
-    while(!nmst.empty()){
-        int m= *nmst.begin();
-        prims_MST(adj,imst,nmst,ele,m);
-    }
-
-    return wt;
+    return min_key_index;
 }
 
+void prims_MST_adjacency_matrix(vector<vector<int>> graph, int V){
+    int parent[V];
+    bool MST[V];
+    int key[V+1];
+    //starting from 0 node
+    parent[0] = -1;
+    
+    for(int i=0; i<V ;i++){
+        MST[i] = false;
+        key[i] = INT_MAX;
+    }
+    
+    key[0] = 0;
+
+    for(int i = 0; i < V-1; i++){
+        int u = minKey(key,MST, V);
+        MST[u] = true;
+
+        for(int v = 0; v < V ; v++){
+            if(graph[u][v]!=0 &&  MST[v] == false && graph[u][v] < key[v]){
+                key[v] = graph[u][v];
+                parent[v] = u;
+            }
+        }
+    }
+
+    cout<<"Edge \tWeight\n"; 
+    for(auto i = 0;i<V; i++){
+        cout<<parent[i]<<" - "<<i<<" \t"<<graph[i][parent[i]]<<" \n";
+    }
+}
 
 int main(){
-
     int V = 5;
-    vector<pp> adj[V];
+    vector<vector<int>> graph = { { 0, 2, 0, 6, 0 },  
+                        { 2, 0, 3, 8, 5 },  
+                        { 0, 3, 0, 0, 7 },  
+                        { 6, 8, 0, 0, 9 },  
+                        { 0, 5, 7, 9, 0 } };
+
     cout<<endl;
-
-    addEdge(adj,0,1,2);
-    addEdge(adj,0,3,6);
-    addEdge(adj,1,3,8);
-    addEdge(adj,1,2,3);
-    addEdge(adj,1,4,5);
-    addEdge(adj,2,4,7);
-
-    cout<<prims_MST_init(adj,V)<<endl;
     
-
-    int graph1[5][4]={
-        {0,5,8,0}, {5,0,10,0}, {8,10,0,20}, {8,10,0,20}, {0,15,20,0}
-    };
-
-    int graph2[5][5]={
-        {0,2,0,6,0}, {2,0,3,8,5}, {0,3,0,0,7}, {6,8,0,0,9}, {0,5,7,9,0}
-    };
-
-    int graph3[5][5]={
-        {0,1,0,6,0}, {2,0,3,8,5}, {0,3,0,0,7}, {6,8,0,0,0}, {0,5,7,0,0}
-    };
-
-    return 0;
+    prims_MST_adjacency_matrix(graph,V);
+    cout<<endl;
 }

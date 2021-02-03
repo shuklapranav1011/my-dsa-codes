@@ -5,9 +5,8 @@ int left(int i) {return 2*i+1;}
 int right(int i) {return 2*i+2;}
 int parent(int i) {return (i-1)/2;}
 
-void maxheapify(vector<int> arr,int n, int i){
+void maxheapify(vector<int> arr,int size, int i){
     
-    int size = n;
     int lt = left(i);
     int rt = right(i);
     int lg = i;
@@ -22,20 +21,20 @@ void maxheapify(vector<int> arr,int n, int i){
 
     if(lg!=i){
         swap(arr[lg], arr[i]);
-        maxheapify(arr, size--, lg);
+        maxheapify(arr, size, lg);
     }
 }
 
-void heapSort(vector<int> &arr, int n){
+void heapSort(vector<int> arr, int n){
    
    //build_maxHeap
     for(int i = parent(n-1); i>=0; i--){
-        maxheapify(arr,i);
+        maxheapify(arr,n,i);
     }
 
     for(auto i = n-1; i>=1; i--){
         swap(arr[i],arr[0]);
-        maxheapify(arr,0);
+        maxheapify(arr,i,0);
     }
 
 }

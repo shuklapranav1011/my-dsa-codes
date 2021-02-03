@@ -22,4 +22,5 @@ int main()
     /*This is called Functor*/
     
     //an overloaded object that can be called as a function
+    return 0;
 }
