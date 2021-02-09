@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "directed_graph_isCycle.cpp,/home/dragoneel1011/Desktop/codes/my-dsa-codes/Graphs i/directed_graph_isCycle",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
