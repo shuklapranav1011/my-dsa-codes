@@ -30,6 +30,11 @@ pp get24hr(string s, string ap)
     return make_pair(hh, mm);
 }
 
+int getMin(pp time)
+{
+    return time.first * 60 + time.second;
+}
+
 int main()
 {
     IOS int t;
@@ -40,7 +45,7 @@ int main()
         string s1;
         string ap1;
         cin >> s1 >> ap1;
-        auto t1 = get24hr(s1, ap1);
+        auto t1 = getMin(get24hr(s1, ap1));
         int n;
         cin >> n;
         for (int cnt = 1; cnt <= n; cnt++)
@@ -48,18 +53,11 @@ int main()
             string s2;
             string ap2;
             cin >> s2 >> ap2;
-            auto t2 = get24hr(s2, ap2);
+            auto t2 = getMin(get24hr(s2, ap2));
             cin >> s2 >> ap2;
-            auto t3 = get24hr(s2, ap2);
-            if (t1.first >= t2.first && t1.first <= t3.first)
-            {
-                if (t1.second >= t2.second && t1.second <= t3.second)
-                {
-                    cout << "1";
-                }
-                else
-                    cout << "0";
-            }
+            auto t3 = getMin(get24hr(s2, ap2));
+            if (t1 >= t2 && t1 <= t3)
+                cout << "1";
             else
                 cout << "0";
         }
