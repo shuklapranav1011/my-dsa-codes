@@ -2,36 +2,35 @@
 
 #include <iostream>
 using namespace std;
-#define ll long long
-int main()
+typedef ll long long int main()
 {
    ll n;
-   cin>>n;
-   ll a[]={2,3,5,7,11,13,17,19};
-   ll denom=1;
-   ll j=0;
-   ll ans=0;
-   for(ll i=1;i<(1<<8);i++)
+   cin >> n;
+   ll a[] = {2, 3, 5, 7, 11, 13, 17, 19};
+   ll denom = 1;
+   ll j = 0;
+   ll ans = 0;
+   for (ll i = 1; i < (1 << 8); i++)
    {
-      ll x=i;
-      j=0;
-      denom=1;
-      while(x>0)
+      ll x = i;
+      j = 0;
+      denom = 1;
+      while (x > 0)
       {
-         if(x&1)
-            denom*=a[j];
+         if (x & 1)
+            denom *= a[j];
          j++;
-         x=x>>1;
+         x = x >> 1;
       }
-      if(__builtin_popcount(i)&1)
+      if (__builtin_popcount(i) & 1)
       {
-         ans+=(n/denom);
+         ans += (n / denom);
       }
       else
       {
-         ans-=(n/denom);
+         ans -= (n / denom);
       }
    }
-   cout<<ans;
+   cout << ans;
    return 0;
 }

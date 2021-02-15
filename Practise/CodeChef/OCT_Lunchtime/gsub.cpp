@@ -6,7 +6,7 @@
 #include<iostream>
 #include<climits>
 using namespace std;
-#define ll long 
+typedef ll long 
 
 int main(int argc, char const *argv[])
 {
@@ -50,16 +50,15 @@ int main(int argc, char const *argv[])
 */
 
 #include <bits/stdc++.h>
-#define ll long long int
-using namespace std;
+typedef ll long long int using namespace std;
 
 int main()
 {
 
 #ifdef ONLINE_JUDGE
-	freopen("intput.txt" , "r" , stdin);
-	freopen("output.txt" , "w" , stdout);
-	#endif
+    freopen("intput.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
 
     ll testcase;
     cin >> testcase;

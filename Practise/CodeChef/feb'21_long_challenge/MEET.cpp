@@ -1,16 +1,13 @@
 #include <bits/stdc++.h>
-#define IOS                           \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
+typedef IOS
+    ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+cout.tie(NULL);
 using namespace std;
 
-#define ll long long
-#define lli long long int
-#define pp pair<int, int>
-#define pp1 pair<pp, pp>
+typedef ll long long typedef lli long long int typedef pp pair<int, int> typedef pp1 pair<pp, pp>
 
-pp get24hr(string s, string ap)
+    pp get24hr(string s, string ap)
 {
     int h1 = (int)s[0] - '0';
     int h2 = (int)s[1] - '0';

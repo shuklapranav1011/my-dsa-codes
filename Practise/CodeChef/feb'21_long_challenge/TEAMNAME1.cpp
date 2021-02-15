@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
-#define IOS                           \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
+typedef IOS
+    ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+cout.tie(NULL);
 using namespace std;
 
-#define ll long long
-#define lli long long int
+typedef ll long long typedef lli long long int
 
-#define mm map<string, ll>
-#define mm1 map<ll, set<char>>
+    typedef mm map<string, ll> typedef mm1 map<ll, set<char>>
 
-ll fastComb(ll n, ll r)
+        ll fastComb(ll n, ll r)
 {
     if (n < r)
         return 0;

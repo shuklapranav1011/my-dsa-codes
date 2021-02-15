@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
-#define IOS                           \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL);
+typedef IOS
+    ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+cout.tie(NULL);
 using namespace std;
 
-#define ll long long
-#define lli long long int
-int main()
+typedef ll long long typedef lli long long int int main()
 {
     IOS int t;
     cin >> t;
