@@ -3,46 +3,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class key_vertex_pair{
+typedef pair<int, int> pp;
 
-    public:
-    int vertex;
-    int key;
-    
-    key_vertex_pair(int v, int k){
-        vertex = v;
-        key = k;
+class Graph
+{
+
+    //Adjacency list
+    vector<pp> *l; //{node, wt}
+    int V;
+
+public:
+    Graph(int n)
+    {
+        V = n;
+        l = new vector<pp>[n];
+    }
+
+    void addEdge(int x, int y, int w)
+    {
+        l[x].push_back({y, w});
+        l[y].push_back({x, w});
+    }
+
+    int prims_mst()
+    {
+        priority_queue<pp, vector<pp>, greater<pp>> q;
+        //key,value  (wt, node)
+        q.push({0, 0});
+
+        bool mstset[V + 1];
+        memset(mstset, false, sizeof(mstset));
+
+        int mstWt = 0;
+        while (!q.empty())
+        {
+            auto temp = q.top();
+            q.pop();
+
+            int wt = temp.first;
+            int u = temp.second;
+            mstWt += wt;
+            mstset[u] = true;
+
+            /**/
+            for (auto x : l[u])
+            {
+                int wt = x.second;
+                int v = x.first;
+                if (!mstset[v])
+                    q.push({wt, v}); //remember that queue element is <wt, node>
+            }
+        }
+
+        return mstWt;
     }
 };
-
-class minKey{
-    public:
-    bool operator()(key_vertex_pair a, key_vertex_pair b){
-        return a.key < b.key;
-    }
-};
-
-void prim_MST_adjacency_list(vector<int> graph[], int V){
-    priority_queue <key_vertex_pair, vector<key_vertex_pair>, minKey> p;
-    for(int i=1;i<V;i++){
-        key_vertex_pair val(i,INT_MAX);
-        p.push(val);
-    }
-
-    key_vertex_pair val1(0,0);
-    p.push(val1);
-
-    for(int cnt = 0; cnt < V-1; cnt++){
-        auto x = p.top();
-        p.pop();
-
-        int u = x.vertex;
-        int k = x.key;
-
-        
-    }
-}
-
-int main(){
-
-}
