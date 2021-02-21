@@ -5,9 +5,9 @@
     cout.tie(NULL);
 using namespace std;
 
-#define ll long long
-#define lli long long int
-#define pp pair<int, int>
+typedef long long ll;
+typedef long long int lli;
+typedef pair<int, int> pp;
 
 class disjointSet
 {
@@ -77,3 +77,84 @@ public:
         }
     }
 };
+
+class edge
+{
+
+public:
+    int src, dest, wt;
+
+    edge()
+    {
+        src = 0, dest = 0, wt = 0;
+    }
+
+    edge(int s, int d, int w)
+    {
+        src = s;
+        dest = d;
+        wt = w;
+    }
+};
+
+class Graph
+{
+
+    int V;
+    vector<edge> g;
+
+public:
+    Graph(int len)
+    {
+        V = len;
+    }
+
+    void addEdge(int s, int d, int w)
+    {
+        g.push_back(edge(s, d, w));
+        /*the graph is undirected but we only want the edge list*/
+    }
+
+    bool cmp(edge e1, edge e2)
+    {
+        return e1.wt < e2.wt;
+    }
+
+    int mstkruskal()
+    {
+        //vector<edge> outputmst(g.size());
+
+        sort(g.begin(), g.end(), cmp);
+
+        disjointSet dsu;
+        dsu.init(V);
+
+        int mstWt = 0;
+
+        for (int i = 0, s = 0; s < V - 1; i++)
+        {
+            edge e = g[i];
+            int x = dsu.find(e.src);
+            int y = dsu.find(e.dest);
+
+            if (x != y)
+            {
+                dsu.union_(e.src, e.dest);
+                mstWt += e.wt;
+                //outputmst[s] = e;
+                s++;
+            }
+        }
+
+        return mstWt;
+    }
+};
+
+int main()
+{
+    IOS
+        ll n;
+    cin >> n;
+
+    return 0;
+}
