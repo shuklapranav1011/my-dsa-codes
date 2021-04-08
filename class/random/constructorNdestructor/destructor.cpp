@@ -1,6 +1,7 @@
 /*
 Only one destructor in a class although class can have multiple constructors;
 
+If we have a class which has dynamically allocated memory, then it is always recommended to write the destructor.
 */
 
 #include <bits/stdc++.h>
