@@ -1,0 +1,26 @@
+--> The idea of operator overloading is to make functions which provide support for custom datatyoes like the buiild-in data types
+
+Use of operator overloading? 
+    --> improves readability of the code.
+    --> this make code easily understandable
+
+Can we write anyything inside a operator overloading function?
+    --> Yes. 
+        operator overloading function may contain anything eg. print statements etc.
+        But,
+        it is highly recommended to use operator overloading function for only its purpose.
+        * If a developer has to read a overloading function in order to understand it then it is not a good overloading *
+
+What happens to precedence, associativity and arity of overloaded operators?
+    --> It is not changed. 
+
+Can all operators be overloaded?
+    --> No! 
+        .      ::       ?:      sizeof
+        these four operators cannot be overloaded.
+
+Assignment operator
+    By default, if we don't overload Assignment operator, C++ complier creates a defualt overloaded assignment operator for us to use.
+    BUT,
+    like copy constructor this operator does shallow assignment and if we are dealing with dynamic memory allocation and pointers dealing eith this, then we need to create deep copy contructors.
+

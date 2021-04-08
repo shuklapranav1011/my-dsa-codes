@@ -49,7 +49,7 @@ public:
         return temp;
     }
 
-    friend complexNo operator+(complex c, complex d); //friend function is defined outside the class.
+    friend complexNo operator+(complexNo c, complexNo d){} //friend function is defined outside the class.
 };
 
 int main()
