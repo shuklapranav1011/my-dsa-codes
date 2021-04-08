@@ -1,0 +1,6 @@
+--> Static Variables are shared amoung all the members of a class i.e. two different functions hsare the same copy of a static members.
+
+--> Non-static members are ALLOWED to access static data, however
+Static Members are NOT ALLOWED to access non-static data.
+
+--> Static members do not have their own this pointer because the deal with class level data and this pointer is defined for the object of a class.
