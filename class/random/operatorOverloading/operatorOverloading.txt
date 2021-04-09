@@ -1,5 +1,17 @@
 --> The idea of operator overloading is to make functions which provide support for custom datatyoes like the buiild-in data types
 
+--> Operator Overloading cannot change the operation performed by the operator.
+
+--> New Operators cannot be created by operator overloading.
+
+--> Overloading operators like && and ||, makes them loose their sprecial properties like 
+    sequescing and short-circuit.
+
+--> All overloaded operators except 'Assignment OPerator' can be inherited by the derived class.
+
+--> Overloaded operators cannot have default arguments;
+
+
 Use of operator overloading? 
     --> improves readability of the code.
     --> this make code easily understandable
@@ -16,7 +28,7 @@ What happens to precedence, associativity and arity of overloaded operators?
 
 Can all operators be overloaded?
     --> No! 
-        .      ::       ?:      sizeof
+        .      ::      .*      ?:      sizeof
         these four operators cannot be overloaded.
 
 Assignment operator
