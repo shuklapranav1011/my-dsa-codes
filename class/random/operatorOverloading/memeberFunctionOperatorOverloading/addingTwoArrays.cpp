@@ -12,7 +12,7 @@ class Array{
     void print();
     Array operator+(Array &);
     ~Array(){
-        delete a;
+        delete []a;
         cout<<"destroyed\n";
     }    
 };
