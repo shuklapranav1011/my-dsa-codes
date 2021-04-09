@@ -1,0 +1,4 @@
+When a class or a function is specified as  a friend of another class or function,
+it can access all the private and protected members of the class or function.
+
+friend function is against the concept of encapsulation and oop practoces adn many languages eg. java do not provide friend functions.
